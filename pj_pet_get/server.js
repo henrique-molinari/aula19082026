@@ -10,8 +10,11 @@ const cors = require('cors')
 //Requere a conexão
 const conn = require('./db/conn')
 
+//Requerer models
+const User = require('./models/users')
+
 // Configurando JSON response - Para ler e devolver um JSON
-api.use(express.json)
+api.use(express.json())
 
 // salve Cors
 api.use(cors({ credential: true, origin: 'http://localhost:5000' }))
@@ -19,8 +22,8 @@ api.use(cors({ credential: true, origin: 'http://localhost:5000' }))
 
 conn.sync()
     .then(() => { api.listen(5000) })//
-    .catch(error=>{console.info(error)})
+    .catch(error => { console.info(error) })
 // Start da API
-// api.listen(5000, () => { 
+// api.listen(5000, () => {
 //     console.log('Servidor Inicializado')
 // })

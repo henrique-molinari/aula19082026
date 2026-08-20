@@ -24,3 +24,5 @@ const User = conn.define('users',{
         type: DataTypes.STRING,
     }
 })
+
+module.exports = User;
